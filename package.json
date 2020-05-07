@@ -1,0 +1,33 @@
+{
+  "name": "art-board",
+  "version": "1.0.0",
+  "description": "Real Time Art Board Application made with Node JS, Express JS, and Socket.IO",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js --exec babel-node -e js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RahulPandya25/Art-Board.git"
+  },
+  "keywords": [
+    "Art",
+    "Board"
+  ],
+  "author": "Rahul Pandya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RahulPandya25/Art-Board/issues"
+  },
+  "homepage": "https://github.com/RahulPandya25/Art-Board#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
