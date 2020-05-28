@@ -13,8 +13,8 @@ var current = {
 
 function mouseDown(e) {
   painting = true;
-  current.x = e.clientX;
-  current.y = e.clientY;
+  current.x = e.clientX || e.touches[0].clientX;
+  current.y = e.clientY || e.touches[0].clientY;
 }
 
 function mouseUp(e) {
