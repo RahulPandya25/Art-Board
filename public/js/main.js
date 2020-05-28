@@ -72,18 +72,31 @@ function paint(x0, y0, x1, y1, color, emit) {
   });
 }
 
+// limit the number of events per second
+function throttle(callback, delay) {
+  var previousCall = new Date().getTime();
+  return function () {
+    var time = new Date().getTime();
+
+    if (time - previousCall >= delay) {
+      previousCall = time;
+      callback.apply(null, arguments);
+    }
+  };
+}
+
 // EventListeners
 
 // for desktop
 canvas.addEventListener("mousedown", mouseDown);
 canvas.addEventListener("mouseup", mouseUp);
 canvas.addEventListener("mouseout", mouseUp);
-canvas.addEventListener("mousemove", mouseMove);
+canvas.addEventListener("mousemove", throttle(mouseMove, 10));
 // for touch screen devices
 canvas.addEventListener("touchstart", mouseDown);
 canvas.addEventListener("touchend", mouseUp);
 canvas.addEventListener("touchcancel", mouseUp);
-canvas.addEventListener("touchmove", mouseMove);
+canvas.addEventListener("touchmove", throttle(mouseMove, 10));
 
 // socket EventListeners
 
