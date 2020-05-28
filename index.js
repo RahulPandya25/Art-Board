@@ -10,15 +10,10 @@ const userService = require("./services/UserService");
 app.use(express.static(__dirname + "/public"));
 
 function onConnection(socket) {
-  socket.on("drawing", (data) => socket.broadcast.emit("drawing", data));
+  console.log("new user connected");
+  socket.on("paint", (data) => socket.broadcast.emit("paint", data));
 }
 
 io.on("connection", onConnection);
 
 http.listen(port, () => console.log("listening on port " + port));
-
-// get req
-app.get("/", (req, res) => {
-  var options = { root: path.join(__dirname, PUBLIC_DIR_PATH) };
-  res.sendFile("index.html", options);
-});

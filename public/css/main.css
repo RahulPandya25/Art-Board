@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --pale-blue-green: #ecfaf5;
+  --pale-green: #dcf8c6;
+  --pale-yellow: #fff5c4;
+  --pale-red: #f79c9f;
+  --pale-blue: #e1f3fb;
+  --blue-ocean: #aadaff;
+  --pale-white: #f9f9f9;
+  --pale-grey: #f0f0f0;
+  --green: #35d371;
+  --lime-accent: #9acb34;
+  --teal-accent: #45ada8;
+  --blue-accent: #4285f4;
+  --yellow-accent: #fce100;
+  --green-accent: #16c60c;
+  --orange-accent: #f7630c;
+  --red-accent: #e81224;
+  --dark: #363e4b;
+  --medium: #3c4758;
+  --light: #fbf8ef;
+  --black: #0a1128b6;
+  --emboss: 6px 6px 10px rgba(0, 0, 0, 0.1),
+    -6px -6px 10px rgba(255, 255, 255, 0.8);
+  --deboss: inset 6px 6px 10px rgba(0, 0, 0, 0.1),
+    inset -6px -6px 10px rgba(255, 255, 255, 0.8);
+}
+
+body {
+  background-color: var(--pale-white);
+}
+
+.whiteboard {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+/*# sourceMappingURL=main.css.map */
