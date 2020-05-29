@@ -2,6 +2,8 @@ var socket = io();
 var canvas = document.getElementsByClassName("whiteboard")[0];
 var cursor = document.getElementsByClassName("my-cursor")[0];
 var context = canvas.getContext("2d");
+//specific to id
+var user = "user";
 
 // variables for paint
 
@@ -38,6 +40,13 @@ function mouseMove(e) {
   var h = canvas.height;
   cursor.style.left = (e.clientX / w) * 100 + "%";
   cursor.style.top = (e.clientY / h) * 100 + "%";
+
+  socket.emit("mark", {
+    x1: e.clientX / w || e.touches[0].clientX / w,
+    y1: e.clientY / h || e.touches[0].clientY / h,
+    color: current.color,
+    user: user,
+  });
 
   if (!painting) {
     return;
@@ -78,6 +87,15 @@ function paint(x0, y0, x1, y1, color, emit) {
   });
 }
 
+function mark(x, y, color, user) {
+  var node = document.getElementById(user);
+  node.style.backgroundColor = color;
+  node.style.borderColor = color;
+  node.style.left = x + "%";
+  node.style.top = y + "%";
+  node.style.zIndex = 2;
+}
+
 // limit the number of events per second
 function throttle(callback, delay) {
   var previousCall = new Date().getTime();
@@ -110,6 +128,12 @@ socket.on("paint", (data) => {
   var w = canvas.width;
   var h = canvas.height;
   paint(data.x0 * w, data.y0 * h, data.x1 * w, data.y1 * h, data.color);
+});
+
+socket.on("mark", (data) => {
+  var w = canvas.width;
+  var h = canvas.height;
+  mark(data.x1 * 100, data.y1 * 100, data.color, data.user);
 });
 
 // for window resize

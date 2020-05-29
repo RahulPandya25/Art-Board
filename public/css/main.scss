@@ -60,7 +60,7 @@ body {
 }
 
 .cursor {
-  --size: 0.5em;
+  --size: 0.75em;
   --base-clr: var(--dark);
   width: var(--size);
   height: var(--size);
@@ -77,6 +77,8 @@ body {
   left: 0;
   z-index: 1;
   transition: top ease-in-out, left ease-in-out;
+}
+.my-cursor {
   @media screen and (max-width: $moblie-target-width) {
     display: none;
   }

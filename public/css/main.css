@@ -59,7 +59,7 @@ body {
 }
 
 .cursor {
-  --size: 0.5em;
+  --size: 0.75em;
   --base-clr: var(--dark);
   width: var(--size);
   height: var(--size);
@@ -80,7 +80,7 @@ body {
 }
 
 @media screen and (max-width: 400px) {
-  .cursor {
+  .my-cursor {
     display: none;
   }
 }

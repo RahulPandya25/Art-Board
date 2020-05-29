@@ -12,6 +12,7 @@ app.use(express.static(__dirname + "/public"));
 function onConnection(socket) {
   console.log("new user connected");
   socket.on("paint", (data) => socket.broadcast.emit("paint", data));
+  socket.on("mark", (data) => socket.broadcast.emit("mark", data));
 }
 
 io.on("connection", onConnection);
