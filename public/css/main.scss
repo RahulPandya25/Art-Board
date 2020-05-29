@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+$moblie-target-width: 400px;
+
 *,
 *::before,
 *::after {
@@ -6,7 +9,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  cursor: none;
 }
 
 :root {
@@ -41,6 +43,10 @@
 body {
   overflow: hidden;
   background-color: var(--pale-white);
+  cursor: none;
+  @media screen and (max-width: 400px) {
+    cursor: pointer;
+  }
 }
 
 .whiteboard {
@@ -54,13 +60,14 @@ body {
 }
 
 .cursor {
-  --size: 1em;
+  --size: 0.5em;
   --base-clr: var(--dark);
   width: var(--size);
   height: var(--size);
   border-radius: 50%;
   background-color: var(--base-clr);
   border: 2px solid var(--base-clr);
+  box-shadow: 0 0 6px var(--base-clr);
 
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -70,4 +77,7 @@ body {
   left: 0;
   z-index: 1;
   transition: top ease-in-out, left ease-in-out;
+  @media screen and (max-width: $moblie-target-width) {
+    display: none;
+  }
 }
