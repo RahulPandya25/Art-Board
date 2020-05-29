@@ -1,6 +1,6 @@
 var socket = io();
 var canvas = document.getElementsByClassName("whiteboard")[0];
-var cursor = document.getElementsByClassName("cursor")[0];
+var cursor = document.getElementsByClassName("my-cursor")[0];
 var context = canvas.getContext("2d");
 
 // variables for paint
