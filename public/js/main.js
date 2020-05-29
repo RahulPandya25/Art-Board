@@ -1,5 +1,6 @@
 var socket = io();
 var canvas = document.getElementsByClassName("whiteboard")[0];
+var cursor = document.getElementsByClassName("cursor")[0];
 var context = canvas.getContext("2d");
 
 // variables for paint
@@ -33,6 +34,11 @@ function mouseUp(e) {
 }
 
 function mouseMove(e) {
+  var w = canvas.width;
+  var h = canvas.height;
+  cursor.style.left = (e.clientX / w) * 100 + "%";
+  cursor.style.top = (e.clientY / h) * 100 + "%";
+
   if (!painting) {
     return;
   }
@@ -109,10 +115,10 @@ socket.on("paint", (data) => {
 // for window resize
 
 window.addEventListener("resize", onResize, false);
-onResize();
-
 // make the canvas fill its parent
 function onResize() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
+
+onResize();

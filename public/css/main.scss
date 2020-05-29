@@ -6,6 +6,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  cursor: none;
 }
 
 :root {
@@ -38,6 +39,7 @@
 }
 
 body {
+  overflow: hidden;
   background-color: var(--pale-white);
 }
 
@@ -49,4 +51,23 @@ body {
   right: 0;
   bottom: 0;
   top: 0;
+}
+
+.cursor {
+  --size: 1em;
+  --base-clr: var(--dark);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background-color: var(--base-clr);
+  border: 2px solid var(--base-clr);
+
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: top ease-in-out, left ease-in-out;
 }
