@@ -187,7 +187,8 @@ socket.on("okay login", (data) => {
   }, 1000);
 });
 socket.on("new connection", (data) => {
-  $("body").append(`<div id="${data.user}" class="cursor"></div>`);
+  if (!$(`#${data.user}`).length)
+    $("body").append(`<div id="${data.user}" class="cursor"></div>`);
 });
 socket.on("user disconnected", (data) => {
   $(`#${data.user}`).remove();
