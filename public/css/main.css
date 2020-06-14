@@ -231,7 +231,7 @@ body {
   .modal .modal-content input {
     padding: 0.25rem;
     font-size: 1em;
-    margin-bottom: 1rem;
+    margin-top: 0;
   }
   .modal .modal-content .close {
     padding: 0.2rem 0.35rem;
