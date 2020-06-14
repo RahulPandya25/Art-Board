@@ -8,9 +8,20 @@ $("#user-modal").show();
 
 // variables for paint
 
+var arr = [
+  "black",
+  "red",
+  "green",
+  "blue",
+  "purple",
+  "teal",
+  "limegreen",
+  "aquamarine",
+];
+
 let painting = false;
 var current = {
-  color: "black",
+  color: arr[Math.floor(Math.random() * arr.length)],
 };
 
 // functions
