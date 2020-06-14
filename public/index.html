@@ -4,11 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Art Board</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
+    <!-- user modal -->
+    <div id="user-modal" class="modal">
+      <div class="hologram">&ldquo;ART BOARD&rdquo;</div>
+      <div class="modal-content">
+        <label for="user">What is your nick name?</label>
+        <input
+          type="text"
+          name="user"
+          id="user"
+          placeholder="Type in your nick name..."
+        /><br />
+        <p class="no-user-error">Please enter a nick name</p>
+        <p class="user-taken-error">
+          nick name already taken, please try another one
+        </p>
+        <button onclick="closeModal()" class="close">Login</button>
+      </div>
+      <div class="credits">
+        <p>
+          Designed by
+          <a href="https://www.linkedin.com/in/rahul-pandya/">Rahul</a>
+          with <q>❤️</q>
+        </p>
+      </div>
+    </div>
+
     <div class="my-cursor cursor"></div>
-    <div id="user" class="cursor"></div>
     <canvas class="whiteboard"></canvas>
 
     <script src="/socket.io/socket.io.js"></script>

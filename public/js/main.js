@@ -2,8 +2,9 @@ var socket = io();
 var canvas = document.getElementsByClassName("whiteboard")[0];
 var cursor = document.getElementsByClassName("my-cursor")[0];
 var context = canvas.getContext("2d");
-//specific to id
-var user = "user";
+//specific to user
+let user = "";
+$("#user-modal").show();
 
 // variables for paint
 
@@ -13,6 +14,40 @@ var current = {
 };
 
 // functions
+
+function closeModal() {
+  user = $("#user").val().trim();
+  if (user && user !== "") {
+    localStorage.setItem("user", user);
+    // todo: and already user scenario - use api
+    socket.emit("broadcast", {
+      user: user,
+      message: "new connection",
+      type: "NEW CONNECTION",
+    });
+  } else {
+    $(".no-user-error").show();
+  }
+}
+function logout() {
+  socket.emit("broadcast", {
+    user: user,
+    message: "user disconnected",
+    type: "USER DISCONNECTED",
+  });
+  toggleNavbar();
+  // cleaning up storage
+  localStorage.removeItem("user");
+
+  // show user modal
+  $("#user-modal").show();
+  setTimeout(function () {
+    $("#user-modal").css("top", "0");
+  }, 1000);
+
+  // cleaning up convo
+  $(".conversation").empty();
+}
 
 function mouseDown(e) {
   painting = true;
@@ -134,6 +169,28 @@ socket.on("mark", (data) => {
   var w = canvas.width;
   var h = canvas.height;
   mark(data.x1 * 100, data.y1 * 100, data.color, data.user);
+});
+
+// user login sockets
+socket.on("username exists", () => {
+  $(".user-taken-error").show();
+});
+socket.on("okay login", (data) => {
+  data.forEach((element) => {
+    $("body").append(`<div id="${element}" class="cursor"></div>`);
+  });
+
+  // removing from view port by moving it up - out of the screen
+  $("#user-modal").css("top", "-100vh");
+  setTimeout(function () {
+    $("#user-modal").hide();
+  }, 1000);
+});
+socket.on("new connection", (data) => {
+  $("body").append(`<div id="${data.user}" class="cursor"></div>`);
+});
+socket.on("user disconnected", (data) => {
+  $(`#${data.user}`).remove();
 });
 
 // for window resize

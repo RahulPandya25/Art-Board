@@ -48,6 +48,123 @@ body {
   }
 }
 
+.modal {
+  cursor: initial;
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Fallback */
+  height: calc(var(--vh, 1vh) * 100);
+  padding: 40% 0 8%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: linear-gradient(-45deg, #c6ffdd, #fbd786, #eba2a4, #fbd786, #c6ffdd);
+  background-size: 800% 100%;
+  -webkit-animation: gradient 8s ease-in-out alternate infinite;
+          animation: gradient 8s ease-in-out alternate infinite;
+  -webkit-transition: top 0.75s ease-in-out;
+  transition: top 0.75s ease-in-out;
+}
+
+.modal .hologram {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.modal .modal-content {
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.modal .modal-content label {
+  color: var(--black);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.modal .modal-content input {
+  padding: 0.25rem;
+  font-size: 1em;
+  color: var(--black);
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid #0a1128a9;
+  -webkit-transition: border 0.25s ease-in-out;
+  transition: border 0.25s ease-in-out;
+}
+
+.modal .modal-content input::-webkit-input-placeholder {
+  font-size: 1em;
+  color: var(--black);
+}
+
+.modal .modal-content input:-ms-input-placeholder {
+  font-size: 1em;
+  color: var(--black);
+}
+
+.modal .modal-content input::-ms-input-placeholder {
+  font-size: 1em;
+  color: var(--black);
+}
+
+.modal .modal-content input::placeholder {
+  font-size: 1em;
+  color: var(--black);
+}
+
+.modal .modal-content input:focus {
+  outline: none !important;
+  border-color: var(--teal-accent);
+}
+
+.modal .modal-content p {
+  display: none;
+  color: var(--red-accent);
+}
+
+.modal .modal-content .close {
+  all: unset;
+  margin-top: 1.25rem;
+  padding: 0.2rem 0.35rem;
+  color: var(--black);
+  border: 3px solid #0a1128a9;
+  font-size: 1em;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.modal .modal-content .close:hover, .modal .modal-content .close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .whiteboard {
   height: 100%;
   width: 100%;
@@ -72,8 +189,8 @@ body {
           transform: translate(-50%, -50%);
   pointer-events: none;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -20px;
+  left: -20px;
   z-index: 1;
   -webkit-transition: top ease-in-out, left ease-in-out;
   transition: top ease-in-out, left ease-in-out;

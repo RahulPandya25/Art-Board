@@ -49,6 +49,99 @@ body {
   }
 }
 
+.modal {
+  cursor: initial;
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh; /* Fallback */
+  height: calc(var(--vh, 1vh) * 100);
+
+  padding: 40% 0 8%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  background: linear-gradient(
+    -45deg,
+    #c6ffdd,
+    #fbd786,
+    #eba2a4,
+    #fbd786,
+    #c6ffdd
+  );
+  background-size: 800% 100%;
+  animation: gradient 8s ease-in-out alternate infinite;
+
+  // animation: pulse 10s linear alternate infinite;
+
+  transition: top 0.75s ease-in-out;
+
+  .hologram {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--black);
+  }
+
+  .modal-content {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    label {
+      color: var(--black);
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    input {
+      padding: 0.25rem;
+      font-size: 1em;
+      color: var(--black);
+      background-color: transparent;
+      border: none;
+      border-bottom: 3px solid #0a1128a9;
+      transition: border 0.25s ease-in-out;
+      &::placeholder {
+        font-size: 1em;
+        color: var(--black);
+      }
+      &:focus {
+        outline: none !important;
+        border-color: var(--teal-accent);
+      }
+    }
+    p {
+      display: none;
+      color: var(--red-accent);
+    }
+
+    .close {
+      all: unset;
+      margin-top: 1.25rem;
+      padding: 0.2rem 0.35rem;
+      color: var(--black);
+      border: 3px solid #0a1128a9;
+      font-size: 1em;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 .whiteboard {
   height: 100%;
   width: 100%;
@@ -73,8 +166,8 @@ body {
   pointer-events: none;
 
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -20px;
+  left: -20px;
   z-index: 1;
   transition: top ease-in-out, left ease-in-out;
 }
