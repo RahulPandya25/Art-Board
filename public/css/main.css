@@ -59,7 +59,7 @@ body {
   height: 100vh;
   /* Fallback */
   height: calc(var(--vh, 1vh) * 100);
-  padding: 40% 0 8%;
+  padding: 100px 0 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -82,7 +82,7 @@ body {
 }
 
 .modal .hologram {
-  font-size: 2.5rem;
+  font-size: 4em;
   font-weight: 600;
   color: var(--black);
 }
@@ -103,13 +103,14 @@ body {
 
 .modal .modal-content label {
   color: var(--black);
-  font-size: 1.2rem;
+  font-size: 2em;
   font-weight: 500;
 }
 
 .modal .modal-content input {
-  padding: 0.25rem;
-  font-size: 1em;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  font-size: 1.5em;
   color: var(--black);
   background-color: transparent;
   border: none;
@@ -150,11 +151,11 @@ body {
 
 .modal .modal-content .close {
   all: unset;
-  margin-top: 1.25rem;
-  padding: 0.2rem 0.35rem;
+  padding: 0.35rem 1rem;
+  margin-top: 2.5rem;
+  font-size: 1.5em;
   color: var(--black);
   border: 3px solid #0a1128a9;
-  font-size: 1em;
   font-weight: 600;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -196,9 +197,46 @@ body {
   transition: top ease-in-out, left ease-in-out;
 }
 
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 800%;
+  }
+  100% {
+    background-position: 100% 800%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 800%;
+  }
+  100% {
+    background-position: 100% 800%;
+  }
+}
+
 @media screen and (max-width: 400px) {
   .my-cursor {
     display: none;
+  }
+  .modal {
+    padding: 40% 0 8%;
+  }
+  .modal .hologram {
+    font-size: 2.5em;
+  }
+  .modal .modal-content label {
+    font-size: 1.2em;
+  }
+  .modal .modal-content input {
+    padding: 0.25rem;
+    font-size: 1em;
+    margin-top: 0;
+  }
+  .modal .modal-content .close {
+    padding: 0.2rem 0.35rem;
+    font-size: 1em;
+    margin-top: 1.25rem;
   }
 }
 /*# sourceMappingURL=main.css.map */
