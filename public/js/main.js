@@ -187,6 +187,8 @@ socket.on("username exists", () => {
   $(".user-taken-error").show();
 });
 socket.on("okay login", (data) => {
+  cursor.style.setProperty("--base-clr", current.color);
+
   data.forEach((element) => {
     $("body").append(`<div id="${element}" class="cursor"></div>`);
   });
