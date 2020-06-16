@@ -188,7 +188,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 80%;
+  width: 100%;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -314,9 +314,13 @@ body {
 }
 
 .color-pallete .clr-option {
-  z-index: 1;
-  width: 50px;
-  height: 50px;
+  --size: 50px;
+  width: var(--size);
+  height: var(--size);
+}
+
+.color-pallete .clr-option:not(:last-child) {
+  margin-right: 3px;
 }
 
 .whiteboard {
@@ -426,6 +430,18 @@ body {
     padding: 0.2rem 0.35rem;
     font-size: 1em;
     margin-top: 1.25rem;
+  }
+  .color-pallete .clr-option {
+    --size: 30px;
+  }
+  .color-pallete .clr-option:not(:last-child) {
+    margin-right: 2px;
+  }
+  .navbar .nav-container .app-title {
+    font-size: 1.75em;
+  }
+  .navbar .nav-container .nav-menu ul li a {
+    font-size: 1em;
   }
 }
 /*# sourceMappingURL=main.css.map */
