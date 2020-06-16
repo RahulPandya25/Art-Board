@@ -39,7 +39,23 @@
       </div>
     </div>
 
-    <div class="color-pallete"></div>
+    <div class="navbar">
+      <div class="nav-container">
+        <label class="app-title">Art Board</label>
+        <div class="burger" onclick="toggleNavbar()">
+          <i class="fas fa-ellipsis-v"></i><i class="fas fa-times"></i>
+        </div>
+        <div class="nav-menu">
+          <ul>
+            <li class="nav-item"><div class="color-pallete"></div></li>
+            <li class="nav-item"><a onclick="eraseAll()">Erase All</a></li>
+            <li class="nav-item">
+              <a class="logout" onclick="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <div class="my-cursor cursor"></div>
     <canvas class="whiteboard"></canvas>

@@ -39,8 +39,23 @@ document.querySelectorAll(".clr-option").forEach((item) => {
   item.addEventListener("click", function (event) {
     current.color = event.target.style.backgroundColor;
     $(".my-cursor").css("--base-clr", current.color);
+    toggleNavbar();
   });
 });
+
+function toggleNavbar() {
+  var burger = $(".burger");
+  var navMenu = $(".nav-menu");
+  if (burger.hasClass("menu-open")) {
+    // menu already open, close it
+    burger.removeClass("menu-open");
+    navMenu.css("top", "-100vh");
+  } else {
+    // meni is closed, open it
+    burger.addClass("menu-open");
+    navMenu.css("top", "0");
+  }
+}
 
 // functions
 
@@ -58,6 +73,12 @@ function closeModal() {
     $(".no-user-error").show();
   }
 }
+
+function eraseAll() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  toggleNavbar();
+}
+
 function logout() {
   socket.emit("broadcast", {
     user: user,

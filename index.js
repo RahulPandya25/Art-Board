@@ -23,7 +23,7 @@ function onConnection(socket) {
       } else socket.emit("username exists");
     } else if (data.type === "USER DISCONNECTED") {
       //  remove user from user list
-      userService.removeUserFromList(data.user);
+      userService.removeUser(data.user);
       // broadcast others
       socket.broadcast.emit("user disconnected", data);
     }
