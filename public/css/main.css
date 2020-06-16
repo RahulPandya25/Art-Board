@@ -317,6 +317,7 @@ body {
   --size: 50px;
   width: var(--size);
   height: var(--size);
+  border-radius: 5px;
 }
 
 .color-pallete .clr-option:not(:last-child) {

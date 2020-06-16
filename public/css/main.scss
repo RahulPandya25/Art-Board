@@ -261,6 +261,7 @@ body {
     --size: 50px;
     width: var(--size);
     height: var(--size);
+    border-radius: 5px;
     &:not(:last-child) {
       margin-right: 3px;
     }

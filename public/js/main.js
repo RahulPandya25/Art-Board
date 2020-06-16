@@ -10,14 +10,14 @@ $("#user-modal").show();
 // variables for paint
 
 var colorArr = [
-  "black",
-  "red",
-  "green",
-  "blue",
-  "purple",
-  "teal",
-  "limegreen",
-  "aquamarine",
+  "#e81224",
+  "#4285f4",
+  "#16c60c",
+  "#fce100",
+  "#f7630c",
+  "#0a1128b6",
+  "#f79c9f",
+  "#35d371",
 ];
 
 let painting = false;
