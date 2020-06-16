@@ -2,13 +2,14 @@ var socket = io();
 var canvas = document.getElementsByClassName("whiteboard")[0];
 var cursor = document.getElementsByClassName("my-cursor")[0];
 var context = canvas.getContext("2d");
+
 //specific to user
 let user = "";
 $("#user-modal").show();
 
 // variables for paint
 
-var arr = [
+var colorArr = [
   "black",
   "red",
   "green",
@@ -21,8 +22,25 @@ var arr = [
 
 let painting = false;
 var current = {
-  color: arr[Math.floor(Math.random() * arr.length)],
+  color: colorArr[Math.floor(Math.random() * colorArr.length)],
 };
+
+// fill color pallete
+(function fillColorPallete() {
+  colorArr.forEach((element) => {
+    $(".color-pallete").append(
+      `<div class="clr-option" style="  background: ${element};    "></div>`
+    );
+  });
+})();
+
+// color selection
+document.querySelectorAll(".clr-option").forEach((item) => {
+  item.addEventListener("click", function (event) {
+    current.color = event.target.style.backgroundColor;
+    $(".my-cursor").css("--base-clr", current.color);
+  });
+});
 
 // functions
 
